@@ -1,2 +1,4 @@
 /__pycache__
 /cont_pas_venv
+
+.env

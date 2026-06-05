@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 import yagmail
-from extract import extract_cont_pas
 
 load_dotenv()
 
@@ -21,14 +20,20 @@ def enviar_mail(nombre, destinatario_mail, detalle):
             \nSaludos,\n Ailes Inclusión.""",
     )
     print(f"📧 Mail enviado a {destinatario_mail}")
+    return True
+  
   except Exception as e:
     print(f"❌ Error enviando mail a {destinatario_mail}: {e}")
+    return False
 
 def generar_mails_pas(pas):
-
+  enviados = 0
   for pa in pas:
     pa_nombre = pa[0]
     pa_mail = pa[1]
     pa_detalle = pa[2]
 
-    enviar_mail(pa_nombre, pa_mail, pa_detalle)
+    ok = enviar_mail(pa_nombre, pa_mail, pa_detalle)
+    if ok:
+      enviados += 1
+  return enviados

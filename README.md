@@ -12,7 +12,7 @@ El script reemplaza una revisión manual mensual: identifica automáticamente qu
 
 1. Se conecta a la base de datos MySQL de Ailes Inclusión.
 2. Consulta la vista `v_ordenes_pago_pas` para encontrar los PAS cuya orden de pago está programada para el mes actual y que **no tienen factura cargada** (`FACTURAS IS NULL`).
-3. Por cada PAS encontrado, envía un mail (vía Gmail/yagmail) recordándole que debe cargar la factura en la plataforma [ailes.indyco.com.ar](https://ailes.indyco.com.ar), incluyendo el detalle de la prestación.
+3. Por cada PAS encontrado, envía un mail (vía Gmail/yagmail) recordándole que debe cargar la factura en la plataforma, incluyendo el detalle de la prestación.
 4. Registra un resumen de la ejecución (cantidad de mails enviados vs. cantidad de registros encontrados) en una colección de MongoDB, para trazabilidad histórica de los reportes del área Contable.
 
 ## Estructura del proyecto
